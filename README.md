@@ -1,2 +1,0 @@
-# MMG
-Mega Musica Gratis!
