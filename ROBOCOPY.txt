@@ -1,0 +1,3 @@
+robocopy c:\origen c:\destino /E *.jpg *.jpeg *png *bmp *webp
+
+C:\Users\s7\Desktop\2020mmg
