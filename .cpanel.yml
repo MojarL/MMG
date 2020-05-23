@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/h35719c/repositories/MMG
+    - /bin/cp -a * $DEPLOYPATH
