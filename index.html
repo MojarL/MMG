@@ -21,6 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/style.css">
   <link rel="icon" type="image/jpg" href="/icon.jpg">
+  <script src="bandsTable/tableFilter.js"></script>
+
 </head>
 
 <body>
@@ -29,6 +31,19 @@
     <section id="header">
     </section>
     <section id="content">
+      <p class='pImportante'>*La tabla puede estar incompleta todavia, abajo el listado completo!</p>
+      <p class='pImportante'>WIP. *Table may be incomplete, below is the full list!</p>
+      <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for band names..." title="Type in a name">
+      <table id="myTable">
+        <tr class="header">
+          <th style="width:60%;">Name</th>
+          <th style="width:40%;">Country</th>
+        </tr>
+        <div id="listado">
+
+        </div>
+
+      </table>
       <div class="cat" id="bodyContainer">
         <div class="bodyp" id="contenido">
         </div>
@@ -51,6 +66,287 @@
       </div>
     </li>
   </ul>
+  <!--script para generar cont de tabla-->
+  <p id='lista2'>2-Minutos.html
+    A77aque.html
+    AC-DC.html
+    Accept.html
+    Alejandra-Guzmán.html
+    Anabantha.html
+    Arbol.html
+    Arcade-Fire.html
+    Arctic-Monkeys.html
+    Armin-van-Buuren.html
+    Astrix.html
+    Attila.html
+    Audio-Adrenaline.html
+    Audioslave.html
+    aurora-aksnes.html
+    Avenged-Sevenfold.html
+    Avril-Lavigne.html
+    Babasonicos.html
+    Bars-and-Melody.html
+    Bazzi.html
+    Beret.html
+    Bersuit-Vergarabat.html
+    Billie-Eilish.html
+    Black-Sabbath.html
+    Blake.html
+    blur.html
+    Bon-Jovi.html
+    Bring-Me-the-Horizon.html
+    BTS.html
+    Bullet-for-my-Valentine.html
+    Burzum.html
+    Cafe-tacvba.html
+    Calle-13.html
+    Callejeros.html
+    Cannibal-Corpse.html
+    Carcass.html
+    catupecu.html
+    Cerati.html
+    Charlotte-de-witte.html
+    Charly-Garcia.html
+    Chris-Cornell.html
+    Christina-Perri.html
+    ciro.html
+    Coal-Chamber.html
+    Coldplay.html
+    Crazytown.html
+    Cruachan.html
+    Cuarteto.html
+    Cypress-Hill.html
+    Daft-Punk.html
+    Damas-Gratis.html
+    Dark-funeral.html
+    DarkThrone.html
+    David-Bowie.html
+    Dead-by-april.html
+    Deftones.html
+    Dio.html
+    divididos.html
+    Dokken.html
+    Echo-and-the-bunnymen.html
+    Emigrate.html
+    Eminem.html
+    Enanitos-Verdes.html
+    Enjambre.html
+    Enrique-bunbury.html
+    Enya.html
+    Eruca-Sativa.html
+    Estados-alterados.html
+    Estelares.html
+    Exodus.html
+    Fabiana-Cantilo.html
+    Falling-Up.html
+    Fear-Factory.html
+    Fobia.html
+    Foo-fighters.html
+    Foster-The-People.html
+    Franz-Ferdinand.html
+    Gegga.html
+    Genesis.html
+    Ghost.html
+    Ghostemane.html
+    Gian-Marco-Zignago.html
+    GIT.html
+    Gloria-Trevi.html
+    Gorillaz.html
+    Gothminister.html
+    Graham-Coxon.html
+    Grandson.html
+    Green-Day.html
+    Guns.html
+    Harry-Nilsson.html
+    Heroes-del-silencio.html
+    Hombres-G.html
+    Ice-Cube.html
+    Ill-Niño.html
+    Imagine-Dragons.html
+    In-Flames.html
+    Indio-Solari.html
+    Inmolation.html
+    Intoxicados.html
+    Jaguares.html
+    Jang-Da-hye-o-Heize.html
+    Jarabe-de-palo.html
+    Jeff-Buckley.html
+    jimi-hendrix.html
+    john-Legend.html
+    Jovenes-pordioseros.html
+    Joy-Division.html
+    Judas-Priest.html
+    Justin-Timberlake.html
+    Kapanga.html
+    keane.html
+    KEY.html
+    Kim-Jong-hyun-(Jonghyun).html
+    Kings-Of-Leon.html
+    Korkiplaani.html
+    korn.html
+    La-25.html
+    La-5ta-estación.html
+    La-beriso.html
+    La-renga.html
+    La-Vela-Puerca.html
+    Lali.html
+    Lana-del-rey.html
+    Las-Pelotas.html
+    Laura-Pausini.html
+    Laura-Pergolizzi.html
+    Lay-(Zhang-Yixing).html
+    Led-Zeppelin.html
+    Linkin-Park.html
+    LiSA.html
+    Little-Mix.html
+    Los-abuelos-de-la-Nada.html
+    Los-Caligaris.html
+    Los-Gardelitos.html
+    Los-piojos.html
+    Los-redondos.html
+    LPDA.html
+    Mago-de-oz.html
+    Mamamoo.html
+    Marilyn-Manson.html
+    Mayhem.html
+    Megadeth.html
+    Melanie-Martinez.html
+    Metallica.html
+    MGMT.html
+    Minho-(Choi-Min-ho).html
+    Monsta-X.html
+    Motorhead.html
+    mumford-and-sons.html
+    Muse.html
+    Mushroomhead.html
+    My-Chemical-Romance.html
+    Nacho-Vegas.html
+    Napalm-Death.html
+    Natalia-Lafourcade.html
+    Nattramn.html
+    navBar.html
+    NCT.html
+    Nickelback.html
+    Nirvana.html
+    NTVG-(No-Te-Va-Gustar).html
+    NU-EST.html
+    Oasis.html
+    Onew-(Lee-Jin-ki).html
+    Oreja-de-Van-Gogh.html
+    Overkill.html
+    Panic-at-the-disco.html
+    Panteón-Rococó.html
+    Passenger.html
+    Paul-Simon.html
+    Paulina-Rubio.html
+    Pearl-Jam.html
+    Pedro-suarez.html
+    Pibes-Chorros.html
+    pillar.html
+    Pink-Floyd.html
+    Porta.html
+    Primus.html
+    Queen.html
+    Queens-of-the-Stone-Age.html
+    Radiohead.html
+    Rage-Against-the-Machine.html
+    Rammstein.html
+    Rata-Blanca.html
+    Ratones-Paranoicos.html
+    Red-Hot.html
+    Red-Velvet.html
+    RM.html
+    Ruel.html
+    RYEOWOOK-(Kim-Ryeo-Wook).html
+    Ryhe.html
+    Salta-La-Banca.html
+    Saratoga.html
+    Saúl-Hernández.html
+    Scandal.html
+    Scarlxrd.html
+    Scorpions.html
+    Scott-Stapp.html
+    Seafret.html
+    Sepultura.html
+    serj-tankian.html
+    Seru-giran.html
+    SEVENTEEN-o-SVT.html
+    Shawn-Mendes.html
+    Shriekback.html
+    Sia.html
+    Ski-Mask-the-Slump-God.html
+    Skillet.html
+    Slash.html
+    Slipknot.html
+    Soda-Stereo.html
+    sodom.html
+    Sopor-Aeternus-and-the-Ensemble-of-Shadows.html
+    Soundgarden.html
+    Soundtracks.html
+    Spinetta.html
+    Stone-Sour.html
+    Stravaganzza.html
+    Stray-Kids.html
+    Stromae.html
+    Suga.html
+    Sui-Generis.html
+    SUPER-JUNIOR.html
+    System-of-a-Down.html
+    TAEMIN.html
+    Taeyeon-(Kim-Tae-yeon).html
+    Talking-Heads.html
+    Tame-Impala.html
+    Temple-of-the-dog.html
+    The-Academy-Is.html
+    The-All-American-Rejects.html
+    The-Beatles.html
+    The-Doors.html
+    The-Fall.html
+    The-Fray.html
+    the-GazettE.html
+    The-killers.html
+    The-Neighbourhood.html
+    The-Rasmus.html
+    The-Red-Jumpsuit-Apparatus.html
+    The-rolling-stones.html
+    The-Sex-Pistols.html
+    The-Sisters-of-Mercy.html
+    The-Smiths.html
+    The-Strokes.html
+    the-verve.html
+    The-War-On-Drugs.html
+    The-White-Stripes.html
+    The-who.html
+    Troye-Sivan.html
+    Turf.html
+    Twenty-One-Pilots.html
+    Two-door-cinema-club.html
+    Two-Feet.html
+    U2.html
+    Ulcerate.html
+    Vilma-Palma-e-Vampiros.html
+    Vitamin-X.html
+    WayV.html
+    Years-And-Years.html
+    Yousei-Teikoku.html
+    Zayn.html
+  </p>
+
+  <script>
+    
+    let texto = document.getElementById('lista2').innerText;
+
+    let array = [];
+    let final = ' ';
+    
+    array = texto.split('.html ');
+    for (let i = 0; i < array.length; i++) {
+      array[i] = ('<tr><td><a href="bandas/' + array[i] + '.html">' + array[i] + '</a></td></tr>');
+      final += array[i];
+    }
+    let listado = document.getElementById('myTable');
+    listado.innerHTML = final; 
+  </script>
   <!--ajax script para llamar una div de otro html-->
   <script>
     $(document).ready(function () {
