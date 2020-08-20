@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
   <title>MEGA MÚSICA GRATIS RENACE! descarga todos los discos por MEGA todas las discografias 1 link MEGA discografía
     completa todos los albumes gratis descargar 2020 2019 Full discography all the album mega download all the disc of
@@ -22,9 +21,8 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
   <link rel="icon" type="image/jpg" href="/icon.jpg">
   <script src="bandsTable/tableFilter.js"></script>
-
+  <script src="./disqus/disqus.js"></script>
 </head>
-
 <body>
   <img id="MMGBanner" src="/banner.jpg" alt="Mega Música Gratis MMG Mega Music Free">
   <section div id="container">
@@ -35,14 +33,8 @@
       <p class='pImportante'>WIP. *Table may be incomplete, below is the full list!</p>
       <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for band names..." title="Type in a name">
       <table id="myTable">
-        <tr class="header">
-          <th style="width:60%;">Name</th>
-          <th style="width:40%;">Country</th>
-        </tr>
         <div id="listado">
-
         </div>
-
       </table>
       <div class="cat" id="bodyContainer">
         <div class="bodyp" id="contenido">
@@ -56,7 +48,6 @@
     <br />
     <br />
     <input type="text" id="search-term"><input type="submit" id="search-button" value="search">
-
   </div>
   <ul class="barra" id="barra">
     <li class="btn"><a href="#">Home</a></li>
@@ -66,8 +57,7 @@
       </div>
     </li>
   </ul>
-  <!--script para generar cont de tabla-->
-  <p id='lista2'>(G)I-DLE-(GIDLE).html
+  <p id='lista2' style="font-size: 1px;">(G)I-DLE-(GIDLE).html
     2-Minutos.html
     A.C.E-(ACE).html
     A77aque.html
@@ -384,28 +374,31 @@
     Zablujena-generacija.html
     Zayn.html
   </p>
-
+   <!--script para generar cont de tabla-->
   <script>
-    
+    //open all link new blank
+    $("a").attr("target", "_blank");
     let texto = document.getElementById('lista2').innerText;
-
+    document.getElementById('lista2').style.display='block';
     let array = [];
     let final = ' ';
-    
     array = texto.split('.html ');
     for (let i = 0; i < array.length; i++) {
       array[i] = ('<tr><td><a href="bandas/' + array[i] + '.html">' + array[i] + '</a></td></tr>');
       final += array[i];
     }
     let listado = document.getElementById('myTable');
-    listado.innerHTML = final; 
+    var prove = document.getElementById("myInput");
+    if (prove) {
+      prove.addEventListener("keyup", filter);
+    }
   </script>
   <!--ajax script para llamar una div de otro html-->
   <script>
     $(document).ready(function () {
       $('#contenido').load('bandas.html #discografias');
       $('#dropdown-content').load('bandas.html #nombres');
-      $('#footer').load('disqus.html #disqusDiv');
+      $('#footer').load('./disqus/disqus.html #disqusDiv');
     });
   </script>
   <!-- SEARCH AND SCROLL -->
@@ -452,180 +445,186 @@
       scroll(scrollContainer, scrollContainer.scrollTop, targetY - 150, 0);
     }
   //]]></script>
+  <script type="text/javascript">
+    var adfly_id = 9147002;
+    var popunder_frequency_delay = 0;
+    var adfly_google_compliant = false;
+    var adfly_protocol = 'https';
+  </script>
+  <script src="https://cdn.adf.ly/js/display.js"></script>
+  <p style="display: none;">Acid folk
+    Americana
+    Art pop
+    Art rock
+    Avant-garde metal
+    bachata
+    balada
+    Black metal
+    Bluegrass
+    Blues
+    blues rock
+    bolero
+    bossa nova
+    Britpop
+    Candombe
+    Celtic metal
+    chamber pop
+    Chill out
+    comedy rap
+    Contemporáneo
+    contemporáneo
+    country
+    Cuarteto
+    dance
+    dance alternativo
+    Dance-punk
+    Dark folk
+    Darkwave
+    Darkwave neoclásico
+    deathcore
+    Deep house
+    Depressive suicidal black
+    doom metal
+    Dream pop
+    Dub
+    Electro
+    electro house
+    Electro-industrial
+    electronica
+    electropop
+    Emo
+    Europop
+    Folk
+    Folk metal
+    Folk Rock
+    Folklore
+    Funk
+    Funk metal
+    Funk rock
+    Fusión
+    Gangsta rap
+    Garage punk
+    Garage rock
+    Garage rock revival
+    Glam metal
+    glam rock
+    Gothic metal
+    grindcore
+    Grunge
+    Hair metal
+    hard rock
+    Hardcore
+    Hardcore punk
+    Heavy metal
+    Hip hop
+    hip hop alternativo
+    hip hop soul
+    house progresivo
+    Indie folk
+    Indie hip hop
+    indie pop
+    Indie rock
+    indietronica
+    jazz
+    jazz fusión
+    jazz rock
+    lo-fi
+    Madchester
+    mariachi
+    metal
+    Metal alternativo
+    metal cristiano
+    Metal experimental
+    Metal industrial
+    Metal progresivo
+    Metal sinfónico
+    Metalcore
+    Murga
+    Música Celta
+    música clásica
+    música cristiana
+    Música electrónica
+    música indígena
+    Música latina
+    Música neo-medieval
+    neo soul
+    Neofolk
+    Neopsicodelia
+    Neue Deutsche Todeskunst
+    New Age
+    new wave
+    Nu metal
+    ópera rock
+    piano rock
+    political rap
+    Pop
+    pop barroco
+    Pop latino
+    Pop psicodélico
+    pop punk
+    pop rock
+    Post-grunge
+    Post-hardcore
+    Post-punk
+    Post-punk revival
+    Power metal
+    Power pop
+    power rock
+    punk
+    Punk rock
+    Ranchera
+    rango
+    rap
+    rap metal
+    Rap rock
+    rapcore
+    Reggae
+    rock alternativo
+    rock and roll
+    Rock barrial
+    Rock cómico
+    Rock cristiano
+    Rock electrónico
+    rock en español
+    Rock espacial
+    Rock experimental
+    Rock gótico
+    Rock industrial
+    Rock Ingles
+    Rock latino
+    rock melódico
+    rock mexicano
+    rock pop
+    rock progresivoo
+    Rock psicodélico
+    rock sinfónico
+    Rock stone
+    Rock teatral
+    Rock​
+    salsa
+    Shoegaze
+    Shoegazing
+    ska
+    Sleaze rock
+    Soft rock
+    Soul
+    Speed metal
+    Stoner rock
+    synthpop
+    Tango
+    Techno
+    Thrash metal
+    thrashcore
+    Trance
+    Trance psicodélico
+    Trap
+    trip hop
+    trip rock
+    trip-hop
+    Underground Electrohouse
+    vals
+    Vocal Trance
+    west coast rap
+    World</p>
 </body>
-Acid folk
-Americana
-Art pop
-Art rock
-Avant-garde metal
-bachata
-balada
-Black metal
-Bluegrass
-Blues
-blues rock
-bolero
-bossa nova
-Britpop
-Candombe
-Celtic metal
-chamber pop
-Chill out
-comedy rap
-Contemporáneo
-contemporáneo
-country
-Cuarteto
-dance
-dance alternativo
-Dance-punk
-Dark folk
-Darkwave
-Darkwave neoclásico
-deathcore
-Deep house
-Depressive suicidal black
-doom metal
-Dream pop
-Dub
-Electro
-electro house
-Electro-industrial
-electronica
-electropop
-Emo
-Europop
-Folk
-Folk metal
-Folk Rock
-Folklore
-Funk
-Funk metal
-Funk rock
-Fusión
-Gangsta rap
-Garage punk
-Garage rock
-Garage rock revival
-Glam metal
-glam rock
-Gothic metal
-grindcore
-Grunge
-Hair metal
-hard rock
-Hardcore
-Hardcore punk
-Heavy metal
-Hip hop
-hip hop alternativo
-hip hop soul
-house progresivo
-Indie folk
-Indie hip hop
-indie pop
-Indie rock
-indietronica
-jazz
-jazz fusión
-jazz rock
-lo-fi
-Madchester
-mariachi
-metal
-Metal alternativo
-metal cristiano
-Metal experimental
-Metal industrial
-Metal progresivo
-Metal sinfónico
-Metalcore
-Murga
-Música Celta
-música clásica
-música cristiana
-Música electrónica
-música indígena
-Música latina
-Música neo-medieval
-neo soul
-Neofolk
-Neopsicodelia
-Neue Deutsche Todeskunst
-New Age
-new wave
-Nu metal
-ópera rock
-piano rock
-political rap
-Pop
-pop barroco
-Pop latino
-Pop psicodélico
-pop punk
-pop rock
-Post-grunge
-Post-hardcore
-Post-punk
-Post-punk revival
-Power metal
-Power pop
-power rock
-punk
-Punk rock
-Ranchera
-rango
-rap
-rap metal
-Rap rock
-rapcore
-Reggae
-rock alternativo
-rock and roll
-Rock barrial
-Rock cómico
-Rock cristiano
-Rock electrónico
-rock en español
-Rock espacial
-Rock experimental
-Rock gótico
-Rock industrial
-Rock Ingles
-Rock latino
-rock melódico
-rock mexicano
-rock pop
-rock progresivoo
-Rock psicodélico
-rock sinfónico
-Rock stone
-Rock teatral
-Rock​
-salsa
-Shoegaze
-Shoegazing
-ska
-Sleaze rock
-Soft rock
-Soul
-Speed metal
-Stoner rock
-synthpop
-Tango
-Techno
-Thrash metal
-thrashcore
-Trance
-Trance psicodélico
-Trap
-trip hop
-trip rock
-trip-hop
-Underground Electrohouse
-vals
-Vocal Trance
-west coast rap
-World
-
 </html>
