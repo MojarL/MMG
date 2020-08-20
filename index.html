@@ -1,10 +1,18 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
+  <!--force to get protocol https-->
+  <script>
+    if (location.protocol !== 'https:') {
+      location.replace(`https:${location.href.substring(location.protocol.length)}`);
+    }
+  </script>
   <title>MEGA MÚSICA GRATIS RENACE! descarga todos los discos por MEGA todas las discografias 1 link MEGA discografía
     completa todos los albumes gratis descargar 2020 2019 Full discography all the album mega download all the disc of
     by mega 1 link mega free torrent bajar las canciones de gratis mega music free mega música gratis mp3 blogger blog
     de descarga de musica</title>
+
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
@@ -23,6 +31,7 @@
   <script src="bandsTable/tableFilter.js"></script>
   <script src="./disqus/disqus.js"></script>
 </head>
+
 <body>
   <img id="MMGBanner" src="/banner.jpg" alt="Mega Música Gratis MMG Mega Music Free">
   <section div id="container">
@@ -374,12 +383,12 @@
     Zablujena-generacija.html
     Zayn.html
   </p>
-   <!--script para generar cont de tabla-->
+  <!--script para generar cont de tabla-->
   <script>
     //open all link new blank
     $("a").attr("target", "_blank");
     let texto = document.getElementById('lista2').innerText;
-    document.getElementById('lista2').style.display='block';
+    document.getElementById('lista2').style.display = 'block';
     let array = [];
     let final = ' ';
     array = texto.split('.html ');
@@ -627,4 +636,5 @@
     west coast rap
     World</p>
 </body>
+
 </html>
