@@ -9,6 +9,29 @@ html{
   scroll-behavior: smooth;
 }
 
+h4{
+  font-size: 24px;
+}
+
+h2{
+  font-size: 26px;
+}
+
+p{
+  font-size: 18px;
+}
+
+.img-paypal{
+  width: 42%;
+}
+.img-cafecito{
+  width: 46%;
+}
+
+.input-group-text,.form-control{
+  font-size: 17px;
+}
+
 .hide{
   display: none;
 }
@@ -96,9 +119,7 @@ a {
   margin-left: auto;
 }
 
-.tm-section-title {
-  font-size: 1.6rem;
-}
+
 
 .parallax-window {
   min-height: 662px;
@@ -299,11 +320,42 @@ a {
   .tm-gallery-wrap {
     max-width: 780px;
   }
+
+  h4{
+    font-size: 21px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  p{
+    font-size: 17px;
+  }
+  .input-group-text,.form-control{
+    font-size: 16px;
+  }
+  .parallax-window {
+    min-height: 600px;
+  }
 }
 
 @media (max-width: 1200px) {
   .tm-gallery-wrap {
     max-width: 520px;
+  }
+  h4{
+    font-size: 19px;
+  }
+  h2{
+    font-size: 22px;
+  }
+  p{
+    font-size: 16px;
+  }
+  .input-group-text,.form-control{
+    font-size: 15px;
+  }
+  .parallax-window {
+    min-height: 500px;
   }
 }
 
@@ -311,11 +363,41 @@ a {
   .tm-gallery-wrap {
     max-width: 780px;
   }
+  h4{
+    font-size: 17px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  p{
+    font-size: 15px;
+  }
+  .input-group-text,.form-control{
+    font-size: 14px;
+  }
+  .parallax-window {
+    min-height: 450px;
+  }
 }
 
 @media (max-width: 767px) {
   .tm-gallery-wrap {
     max-width: 520px;
+  }
+  h4{
+    font-size: 15px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  p{
+    font-size: 14px;
+  }
+  .input-group-text,.form-control{
+    font-size: 13px;
+  }
+  .parallax-window {
+    min-height: 350px;
   }
 }
 
@@ -323,7 +405,23 @@ a {
   .tm-gallery-wrap {
     max-width: 260px;
   }
+  h4{
+    font-size: 12px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  p{
+    font-size: 12px;
+  }
+  .input-group-text,.form-control{
+    font-size: 11px;
+  }
+  .parallax-window {
+    min-height: 300px;
+  }
 }
+
 
 .tm-gallery-item {
   padding-left: 10px;
@@ -680,7 +778,6 @@ figure.effect-bubba:hover p {
   }
 
   figure.effect-bubba h2 {
-    font-size: 1.1rem;
     margin-bottom: 25px;
   }
 
