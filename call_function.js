@@ -1,3 +1,6 @@
+if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
 //Import with plain JS, must fill vars.
 class Imported{
 
@@ -46,3 +49,4 @@ window.onload = init();
 
 //all links open new blank
 $("a").attr("target", "_blank");
+
