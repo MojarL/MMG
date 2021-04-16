@@ -1,13 +1,13 @@
+if (location.protocol !== 'https:') {
+  location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
+
 let tablaArtistas = document.getElementById("bands-table");
 let tablaDiscos = document.getElementById("discs-table");
 let tablaArtSup, tablaDiscSup;
 
-
-
-
-
 function fillTableArt() {
-  var node1, node2, node3, textnode;           
+  var node1, node2, node3, textnode;
   tablaArtistas.innerHTML = "";
   for (let i = 0; i < bandas.length; i++) {
     node1 = document.createElement("tr");
@@ -15,20 +15,13 @@ function fillTableArt() {
     node3 = document.createElement("h4")
     textnode = document.createTextNode(bandas[i][1]);
 
-    node2.setAttribute("id",bandas[i][0]);
-    node2.setAttribute("onClick","hola(this.id)");
+    node2.setAttribute("id", bandas[i][0]);
+    node2.setAttribute("onClick", "hola(this.id)");
 
     node1.appendChild(node2);
     node2.appendChild(node3);
-    node3.appendChild(textnode)                              
+    node3.appendChild(textnode)
     tablaArtistas.appendChild(node1);
-
-    /*tablaArtistas.innerHTML += `
-    <tr>
-      <td id="${bandas[i][0]}" onclick="hola(this.id)" >
-        <h4>${bandas[i][1]}</h4>
-      </td>
-    </tr>`*/
   }
   tablaArtSup = tablaArtistas.innerHTML;
 }
@@ -36,7 +29,7 @@ function fillTableArt() {
 fillTableArt();
 
 function fillTableDisc() {
-  var node1, node2, node3, node4, textnode;           
+  var node1, node2, node3, node4, textnode;
   tablaDiscos.innerHTML = "";
   for (let i = 0; i < discos.length; i++) {
     node1 = document.createElement("tr");
@@ -46,15 +39,14 @@ function fillTableDisc() {
 
     textnode = document.createTextNode(discos[i][2]);
 
-    node3.setAttribute("href",discos[i][3]);
-    node3.setAttribute("target","_blank");
+    node3.setAttribute("href", discos[i][3]);
+    node3.setAttribute("target", "_blank");
 
     node1.appendChild(node2);
     node2.appendChild(node3);
-    node3.appendChild(node4) 
-    node4.appendChild(textnode)                             
+    node3.appendChild(node4)
+    node4.appendChild(textnode)
     tablaDiscos.appendChild(node1);
-
   }
   tablaDiscSup = tablaDiscos.innerHTML;
 }
@@ -138,8 +130,6 @@ function hola(clickedId) {
   let idBanda = document.getElementById(clickedId);
   let tableDiscs;
 
-
-
   idBanda.innerHTML += `
     <table id="discos">
     </table>
@@ -155,7 +145,6 @@ function hola(clickedId) {
     `
   }
 
-  tablaArtistas.innerHTML = idBanda.innerHTML
-
+  tablaArtistas.innerHTML = idBanda.innerHTML;
 }
 
