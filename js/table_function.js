@@ -1,9 +1,6 @@
-if (location.protocol !== 'https:') {
-  location.replace(`https:${location.href.substring(location.protocol.length)}`);
-}
-
 let tablaArtistas = document.getElementById("bands-table");
 let tablaDiscos = document.getElementById("discs-table");
+let alertMsj = document.getElementById("alertMsj");
 let tablaArtSup, tablaDiscSup;
 
 function fillTableArt() {
@@ -51,7 +48,7 @@ function fillTableDisc() {
   tablaDiscSup = tablaDiscos.innerHTML;
 }
 
-fillTableDisc();
+/*fillTableDisc();*/
 
 function filterArt() {
   tablaArtistas.innerHTML = tablaArtSup;
@@ -90,7 +87,7 @@ function filterArt() {
 filterArt();
 
 function filterDisc() {
-  tablaDiscos.innerHTML = tablaDiscSup;
+  /*tablaDiscos.innerHTML = tablaDiscSup;*/
   var input, filter, tr, td, i, txtValue, count;
   input = document.getElementById("discsInput");
   filter = input.value.toUpperCase();
@@ -109,13 +106,13 @@ function filterDisc() {
     }
   }
   if (count == 0) {
-    tablaDiscos.innerHTML += `
+    alertMsj.innerHTML = `
     <div class="alert alert-warning" role="alert">
       <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
     </div>
     `
   } else {
-    tablaDiscos.innerHTML += `
+    alertMsj.innerHTML = `
 
     <div class="alert alert-success" role="alert">
       <h4 class="">+${discos.length - count} DISCOS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>

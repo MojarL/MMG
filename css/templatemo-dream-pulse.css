@@ -22,10 +22,10 @@ p{
 }
 
 .img-paypal{
-  width: 42%;
+  width: 52%;
 }
 .img-cafecito{
-  width: 46%;
+  width: 57%;
 }
 
 .input-group-text,.form-control{
@@ -184,8 +184,8 @@ a {
   z-index: 100;
   padding-left: 70px;
   padding-right: 70px;
-  width: 300px;
-  max-width: 300px;
+  width: 400px;
+  max-width: 400px;
 }
 
 /* Hide scrollbar */
