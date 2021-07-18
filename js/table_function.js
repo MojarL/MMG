@@ -2,146 +2,214 @@ let tablaArtistas = document.getElementById("bands-table");
 let tablaDiscos = document.getElementById("discs-table");
 let alertMsj = document.getElementById("alertMsj");
 let tablaArtSup, tablaDiscSup;
+let artInput = document.getElementById("artInput");
 
-function fillTableArt() {
-  var node1, node2, node3, textnode;
+artInput.addEventListener("keyup", createArtistTable);
+let discsInput = document.getElementById("discsInput");
+discsInput.addEventListener("keyup", createDiscTable);
+
+let discsCount = 0;
+function countDiscs() {
+  let i = 0;
+  while (i < bands.length) {
+    let j = 0;
+    while (j < bands[i].discs.length) {
+      discsCount++;
+      j++;
+    }
+    i++;
+  }
+}
+countDiscs();
+
+function removeSigns(frase) {
+  frase = frase.replace('Á', 'A');
+  frase = frase.replace('Á', 'A');
+  frase = frase.replace('É', 'E');
+  frase = frase.replace('Í', 'I');
+  frase = frase.replace('Ó', 'O');
+  frase = frase.replace('Ö', 'O');
+  frase = frase.replace('Ú', 'U');
+  return frase;
+}
+
+function createColumn(number, text, table, j) {
+  let node1 = document.createElement('tr');
+  let node2 = document.createElement('td');
+  let node3 = document.createElement('h4');
+  let textnode = document.createTextNode(text);
+
+  node1.appendChild(node2);
+  node2.appendChild(node3);
+
+  if (table == tablaArtistas) {
+    node3.setAttribute("id", `${bands[number].id}`);
+    node3.setAttribute("onclick", "clickedBand(this.id)");
+
+    node3.appendChild(textnode);
+    table.appendChild(node1);
+
+  } else {
+    node4 = document.createElement('a');
+    node4.setAttribute("href", bands[number].discs[j][2]);
+    node4.setAttribute("target", "_blank");
+    textnode = document.createTextNode(text)
+
+    node3.appendChild(node4);
+    node4.appendChild(textnode);
+    table.appendChild(node1);
+  }
+}
+
+function message(count, table) {
+  if (table == tablaArtistas) {
+    if (count == 0) {
+      table.innerHTML += `
+      <div class="alert alert-warning" role="alert">
+        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
+      </div>
+      `
+    } else {
+      table.innerHTML += `
+  
+      <div class="alert alert-success" role="alert">
+        <h4 class="">+${bands.length - count} ARTISTAS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
+      </div>
+      `
+    }
+  } else {
+    if (count == discsCount) {
+      
+      table.innerHTML += `
+      <div class="alert alert-warning" role="alert">
+        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
+      </div>
+      `
+    } else {
+      table.innerHTML += `
+  
+      <div class="alert alert-success" role="alert">
+        <h4 class="">+${count} DISCOS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
+      </div>
+      `
+    }
+  }
+}
+
+function countMessage(count, table) {
+  if (table == tablaArtistas) {
+    message(count, tablaArtistas);
+  } else {
+    message(count, tablaDiscos);
+  }
+
+}
+
+
+function createArtistTable() {
+  let input = document.getElementById("artInput");
+  let filter = input.value.toUpperCase();
+  let count = 0;
+  i = 0;
+
   tablaArtistas.innerHTML = "";
-  for (let i = 0; i < bandas.length; i++) {
-    node1 = document.createElement("tr");
-    node2 = document.createElement("td");
-    node3 = document.createElement("h4")
-    textnode = document.createTextNode(bandas[i][1]);
+  if (filter != "") {
+    while (i < bands.length && count < 7) {
 
-    node2.setAttribute("id", bandas[i][0]);
-    node2.setAttribute("onClick", "hola(this.id)");
+      let frase = bands[i].nombre.toUpperCase();
+      frase = removeSigns(frase);
 
-    node1.appendChild(node2);
-    node2.appendChild(node3);
-    node3.appendChild(textnode)
-    tablaArtistas.appendChild(node1);
+      if (frase.indexOf(filter) > -1) {
+        createColumn(i, bands[i].nombre, tablaArtistas);
+        count++;
+      }
+      i++;
+    }
+    countMessage(count, tablaArtistas);
+
+  } else {
+    //poner bandas aleatorias
+    while (i < 7) {
+      let rnd = Math.floor(Math.random() * bands.length);
+      createColumn(rnd, bands[rnd].nombre, tablaArtistas);
+      i++;
+    }
+    countMessage(i, tablaArtistas);
   }
-  tablaArtSup = tablaArtistas.innerHTML;
 }
 
-fillTableArt();
+function createDiscTable() {
 
-function fillTableDisc() {
-  var node1, node2, node3, node4, textnode;
+  let input = document.getElementById("discsInput");
+  let filter = input.value.toUpperCase();
+  let count = 0;
+  i = 0;
   tablaDiscos.innerHTML = "";
-  for (let i = 0; i < discos.length; i++) {
-    node1 = document.createElement("tr");
-    node2 = document.createElement("td");
-    node3 = document.createElement("a")
-    node4 = document.createElement("h4")
+  if (filter != "") {
+    while (i < bands.length && count < 7) {
+      let j = 0;
+      while (j < bands[i].discs.length) {
 
-    textnode = document.createTextNode(discos[i][2]);
+        let frase = bands[i].discs[j][1].toUpperCase();
+        frase = removeSigns(frase);
 
-    node3.setAttribute("href", discos[i][3]);
-    node3.setAttribute("target", "_blank");
+        if (frase.indexOf(filter) > -1) {
+          createColumn(i, bands[i].discs[j][1], tablaDiscos, j);
+          count++
+        }
+        j++
+      }
+      i++
+    }
+    countMessage(discsCount - count, tablaDiscos);
+  } else {
+    //poner discos aleatorios
+    for (i = 0; i < 7; i++) {
+      let rnd1 = Math.floor(Math.random() * bands.length);
+      let rnd2 = Math.floor(Math.random() * bands[rnd1].discs.length);
+
+      createColumn(rnd1, bands[rnd1].discs[rnd2][1], tablaDiscos, rnd2);
+    }
+    countMessage(discsCount - 7, tablaDiscos);
+  }
+}
+
+
+
+//esta funcion lo que hace es poner una id para cada banda y un atributo
+function clickedBand(bandId) {
+  tablaArtistas.innerHTML = "";
+
+  node1 = document.createElement('tr');
+  node2 = document.createElement('td');
+  node3 = document.createElement('h4');
+  node3.setAttribute("id", `${bands[bandId].id}`);
+  textnode = document.createTextNode(bands[bandId].nombre);
+
+  node1.appendChild(node2);
+  node2.appendChild(node3);
+  node3.appendChild(textnode);
+  tablaArtistas.appendChild(node1);
+
+  let i = 0;
+  while (i < bands[bandId].discs.length) {
+    let node1 = document.createElement('tr');
+    let node2 = document.createElement('td');
+    let node3 = document.createElement('h4');
+    let node4 = document.createElement('a');
+    node4.setAttribute("href", bands[bandId].discs[i][2]);
+    node4.setAttribute("target", "_blank");
+    let textnode = document.createTextNode(bands[bandId].discs[i][1])
 
     node1.appendChild(node2);
     node2.appendChild(node3);
-    node3.appendChild(node4)
-    node4.appendChild(textnode)
-    tablaDiscos.appendChild(node1);
-  }
-  tablaDiscSup = tablaDiscos.innerHTML;
-}
+    node3.appendChild(node4);
+    node4.appendChild(textnode);
+    tablaArtistas.appendChild(node1);
 
-/*fillTableDisc();*/
-
-function filterArt() {
-  tablaArtistas.innerHTML = tablaArtSup;
-  var input, filter, tr, td, i, txtValue, count;
-  input = document.getElementById("artInput");
-  filter = input.value.toUpperCase();
-  tr = tablaArtistas.getElementsByTagName("tr");
-  count = 0;
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1 && count < 6) {
-        tr[i].style.display = "";
-        count++
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-  if (count == 0) {
-    tablaArtistas.innerHTML += `
-    <div class="alert alert-warning" role="alert">
-      <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
-    </div>
-    `
-  } else {
-    tablaArtistas.innerHTML += `
-
-    <div class="alert alert-success" role="alert">
-      <h4 class="">+${bandas.length - count} ARTISTAS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
-    </div>
-    `
+    i++
   }
 }
-filterArt();
 
-function filterDisc() {
-  /*tablaDiscos.innerHTML = tablaDiscSup;*/
-  var input, filter, tr, td, i, txtValue, count;
-  input = document.getElementById("discsInput");
-  filter = input.value.toUpperCase();
-  tr = tablaDiscos.getElementsByTagName("tr");
-  count = 0;
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1 && count < 6) {
-        tr[i].style.display = "";
-        count++
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-  if (count == 0) {
-    alertMsj.innerHTML = `
-    <div class="alert alert-warning" role="alert">
-      <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
-    </div>
-    `
-  } else {
-    alertMsj.innerHTML = `
-
-    <div class="alert alert-success" role="alert">
-      <h4 class="">+${discos.length - count} DISCOS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
-    </div>
-    `
-  }
-}
-filterDisc();
-
-function hola(clickedId) {
-  console.log(parseInt(clickedId))
-  let idBanda = document.getElementById(clickedId);
-  let tableDiscs;
-
-  idBanda.innerHTML += `
-    <table id="discos">
-    </table>
-    `
-  for (let i = 2; i < bandas[parseInt(clickedId)].length; i++) {
-    tableDiscs = document.getElementById("discos");
-    tableDiscs.innerHTML += `
-        <tr>
-          <td>
-            <a href="${bandas[parseInt(clickedId)][i][3]}" target="_blank">${bandas[parseInt(clickedId)][i][2]}</a>
-          </td> 
-        </tr>
-    `
-  }
-
-  tablaArtistas.innerHTML = idBanda.innerHTML;
-}
-
+createArtistTable();
+createDiscTable();
