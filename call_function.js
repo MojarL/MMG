@@ -15,8 +15,8 @@ class Imported{
     }
 }
 
-let tabla = new Imported;
-tabla.importHtml('bandsTable/bandsTable.html', 'content');
+//let tabla = new Imported;
+//tabla.importHtml('bandsTable/bandsTable.html', 'content');
 let disqus = new Imported;
 disqus.importHtml('../disqus/disqus.html','footer');
 
