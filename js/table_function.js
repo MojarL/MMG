@@ -1,3 +1,4 @@
+
 let tablaArtistas = document.getElementById("bands-table");
 let tablaDiscos = document.getElementById("discs-table");
 let alertMsj = document.getElementById("alertMsj");
@@ -39,7 +40,9 @@ function createColumn(number, text, table, j) {
   let node3 = document.createElement('h4');
   let textnode = document.createTextNode(text);
 
+  //tr td
   node1.appendChild(node2);
+  //td h4
   node2.appendChild(node3);
 
   if (table == tablaArtistas) {
@@ -50,19 +53,31 @@ function createColumn(number, text, table, j) {
     table.appendChild(node1);
 
   } else {
-    node4 = document.createElement('a');
+    let node4 = document.createElement('a');
+    let node5 = document.createElement('td');
+    let texnode2 = document.createTextNode(bands[number].nombre);
+
     node4.setAttribute("href", bands[number].discs[j][2]);
     node4.setAttribute("target", "_blank");
     textnode = document.createTextNode(text)
 
+    //h4 a text
     node3.appendChild(node4);
     node4.appendChild(textnode);
+
+    //tr td text
+    node1.appendChild(node5);
+    node5.appendChild(texnode2)
+
+    //table tr
     table.appendChild(node1);
+
+
   }
 }
 
 function message(count, table) {
-  if (table == tablaArtistas) {
+  if (table == messageArt) {
     if (count == 0) {
       table.innerHTML += `
       <div class="alert alert-warning" role="alert">
@@ -96,11 +111,14 @@ function message(count, table) {
   }
 }
 
+let messageArt = document.getElementById("message-artist");
+let messageDisc = document.getElementById("message-disc");
+
 function countMessage(count, table) {
   if (table == tablaArtistas) {
-    message(count, tablaArtistas);
+    message(count, messageArt);
   } else {
-    message(count, tablaDiscos);
+    message(count, messageDisc);
   }
 
 }
@@ -113,6 +131,7 @@ function createArtistTable() {
   i = 0;
 
   tablaArtistas.innerHTML = "";
+  messageArt.innerHTML = "";
   if (filter != "") {
     while (i < bands.length && count < 7) {
 
@@ -145,6 +164,7 @@ function createDiscTable() {
   let count = 0;
   i = 0;
   tablaDiscos.innerHTML = "";
+  messageDisc.innerHTML = "";
   if (filter != "") {
     while (i < bands.length && count < 7) {
       let j = 0;
@@ -174,17 +194,17 @@ function createDiscTable() {
   }
 }
 
-
-
 //esta funcion lo que hace es poner una id para cada banda y un atributo
 function clickedBand(bandId) {
   tablaArtistas.innerHTML = "";
+  messageArt.innerHTML = "";
 
   node1 = document.createElement('tr');
   node2 = document.createElement('td');
   node3 = document.createElement('h4');
   node3.setAttribute("id", `${bands[bandId].id}`);
-  textnode = document.createTextNode(bands[bandId].nombre);
+  node3.setAttribute("class", 'alert alert-success');
+  textnode = document.createTextNode(bands[bandId].nombre.toUpperCase());
 
   node1.appendChild(node2);
   node2.appendChild(node3);
@@ -209,6 +229,13 @@ function clickedBand(bandId) {
 
     i++
   }
+  let node5 = document.createElement('td');
+  node5.setAttribute("class", 'alert alert-warning');
+  node5.setAttribute("onclick", "createArtistTable()");
+  let texnode2 = document.createTextNode('Volver atrás');
+  node1.appendChild(node5);
+  node5.appendChild(texnode2);
+
 }
 
 createArtistTable();
