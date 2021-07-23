@@ -1,27 +1,74 @@
-
 let tablaArtistas = document.getElementById("bands-table");
 let tablaDiscos = document.getElementById("discs-table");
-let alertMsj = document.getElementById("alertMsj");
-let tablaArtSup, tablaDiscSup;
-let artInput = document.getElementById("artInput");
+let messageArt = document.getElementById("message-artist");
+let messageDisc = document.getElementById("message-disc");
+let discsCount;
 
-artInput.addEventListener("keyup", createArtistTable);
-let discsInput = document.getElementById("discsInput");
-discsInput.addEventListener("keyup", createDiscTable);
+function tableFunction() {
 
-let discsCount = 0;
-function countDiscs() {
-  let i = 0;
-  while (i < bands.length) {
-    let j = 0;
-    while (j < bands[i].discs.length) {
-      discsCount++;
-      j++;
+  let artInput = document.getElementById("artInput");
+  let discsInput = document.getElementById("discsInput");
+  artInput.addEventListener("keyup", createArtistTable);
+  discsInput.addEventListener("keyup", createDiscTable);
+
+  function countDiscs() {
+    discsCount = 0;
+    let i = 0;
+    while (i < bands.length) {
+      let j = 0;
+      while (j < bands[i].discs.length) {
+        discsCount++;
+        j++;
+      }
+      i++;
     }
-    i++;
+  }
+  countDiscs();
+  createArtistTable();
+  createDiscTable();
+}
+
+function message(count, table) {
+  if (table == messageArt) {
+    if (count == 0) {
+      table.innerHTML += `
+      <div class="alert alert-warning" role="alert">
+        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
+      </div>
+      `
+    } else {
+      table.innerHTML += `
+      <div class="alert alert-success" role="alert">
+        <h4 class="">+${bands.length - count} ARTISTAS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
+      </div>
+      `
+    }
+  } else {
+    if (count == discsCount) {
+      table.innerHTML += `
+      <div class="alert alert-warning" role="alert">
+        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
+      </div>
+      `
+    } else {
+      table.innerHTML += `
+      <div class="alert alert-success" role="alert">
+        <h4 class="">+${count} DISCOS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
+      </div>
+      `
+    }
   }
 }
-countDiscs();
+
+
+function countMessage(count, table) {
+  if (table == tablaArtistas) {
+    message(count, messageArt);
+  } else {
+    message(count, messageDisc);
+  }
+}
+
 
 function removeSigns(frase) {
   frase = frase.replace('Á', 'A');
@@ -33,6 +80,7 @@ function removeSigns(frase) {
   frase = frase.replace('Ú', 'U');
   return frase;
 }
+
 
 function createColumn(number, text, table, j) {
   let node1 = document.createElement('tr');
@@ -71,56 +119,7 @@ function createColumn(number, text, table, j) {
 
     //table tr
     table.appendChild(node1);
-
-
   }
-}
-
-function message(count, table) {
-  if (table == messageArt) {
-    if (count == 0) {
-      table.innerHTML += `
-      <div class="alert alert-warning" role="alert">
-        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
-      </div>
-      `
-    } else {
-      table.innerHTML += `
-  
-      <div class="alert alert-success" role="alert">
-        <h4 class="">+${bands.length - count} ARTISTAS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
-      </div>
-      `
-    }
-  } else {
-    if (count == discsCount) {
-      
-      table.innerHTML += `
-      <div class="alert alert-warning" role="alert">
-        <h4>No se encontró nada :( Intenta <a href="#" class="alert-link">viendo la lista completa</a> o volviendo a escribir.</h4>
-      </div>
-      `
-    } else {
-      table.innerHTML += `
-  
-      <div class="alert alert-success" role="alert">
-        <h4 class="">+${count} DISCOS <a href="#" class="alert-link">VER LISTA COMPLETA</a></h4>
-      </div>
-      `
-    }
-  }
-}
-
-let messageArt = document.getElementById("message-artist");
-let messageDisc = document.getElementById("message-disc");
-
-function countMessage(count, table) {
-  if (table == tablaArtistas) {
-    message(count, messageArt);
-  } else {
-    message(count, messageDisc);
-  }
-
 }
 
 
@@ -156,6 +155,7 @@ function createArtistTable() {
     countMessage(i, tablaArtistas);
   }
 }
+
 
 function createDiscTable() {
 
@@ -194,7 +194,7 @@ function createDiscTable() {
   }
 }
 
-//esta funcion lo que hace es poner una id para cada banda y un atributo
+
 function clickedBand(bandId) {
   tablaArtistas.innerHTML = "";
   messageArt.innerHTML = "";
@@ -235,8 +235,4 @@ function clickedBand(bandId) {
   let texnode2 = document.createTextNode('Volver atrás');
   node1.appendChild(node5);
   node5.appendChild(texnode2);
-
 }
-
-createArtistTable();
-createDiscTable();
