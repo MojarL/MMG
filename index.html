@@ -16,7 +16,7 @@
      Check the description">
 
   <title>Mega Música Gratis</title>
-  <script src="js/protocol-change.js"></script>
+  <!--<script src="js/protocol-change.js"></script>-->
 
   <link rel="icon" type="image/jpg" href="./img/icon.jpg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
@@ -26,7 +26,7 @@
   <!--<link rel="stylesheet" href="slick/slick.css" />-->
   <!--<link rel="stylesheet" href="slick/slick-theme.css" />-->
   <!--<link rel="stylesheet" href="css/magnific-popup.css">-->
-  
+
 </head>
 
 <body>
@@ -119,134 +119,135 @@
                 <div class="tm-double-border-2 tm-border-gray tm-box-pad">
                   <div class="tm-section-half">
                     <h2 class="tm-section-title tm-color-primary mb-5">Artistas</h2>
+                    <h3>¡Busca tus artistas favoritos y descarga todas sus discografías completas!</h3>
                     <div class="input-group input-group-lg">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-lg">BUSCAR</span>
                       </div>
-                      
+
                       <input type="text" id="artInput" placeholder="Por ejemplo: Red Hot Chili Peppers"
                         title="Type in a name" class="form-control" aria-label="Large"
                         aria-describedby="inputGroup-sizing-sm">
-                      </div>
-                      <div class="tabla-bandas">
-                        <table class="table table-hover" id="bands-table">
-
-                        </table>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-          </section>
-        </div>
-
-        <div class="tm-section-wrap bg-white">
-          <section id="discos" class="row tm-section">
-            <div class="col-12">
-              <div class="w-100 tm-double-border-1 tm-border-gray">
-                <div class="tm-double-border-2 tm-border-gray tm-box-pad">
-                  <div class="tm-section-half">
-                    <h2 class="tm-section-title tm-color-primary mb-5">Discos</h2>
-                    <div class="input-group input-group-lg">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg">BUSCAR</span>
-                      </div>
-                      <input type="text" id="discsInput" placeholder="Por ejemplo: The Getaway"
-                        title="Type in a name" class="form-control" aria-label="Large"
-                        aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="tabla-discos">
-                      <table class="table table-hover" id="discs-table">
+                    <div class="tabla-bandas">
+                      <table class="table table-hover" id="bands-table">
 
                       </table>
-                      
+                      <div id="message-artist"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
         </div>
+        </section>
+    </div>
 
-        <div class="tm-section-wrap bg-white">
-          <section id="sobre-mmg" class="row tm-section">
-            <div class="col-12 tm-section-pad">
-              <div class="tm-flex-item-left">
-                <div class="tm-w-80">
-                  <h2 class="tm-color-primary tm-section-title mb-4">Sobre Mega Música Gratis</h2>
-                  <p class="mb-5">
-                    Mega Música Gratis es un proyecto de una sola persona,
-                    nacido en un 7 de abril del 2018 en Youtube. A partir de entonces
-                    comenzó a expandirse hacia un blog: megamusicfree.blogspot.com.
-                    Allí, un montón de personas agradecieron su contenido.
-                    Finalmente un 7 de abril de 2020, (si, día y mes coincidentes)
-                    Logró obtener su propio dominio, el mismo que ves ahora mismo: megamusicagratis.com.
-                    Desde ese entonces hasta el día de hoy, Mega Música Gratis consiguió un monton de visitas y
-                    de apoyo por parte de ustedes.
-                  </p>
-                  <b>
-                    <p class="mb-5">¡Muchas gracias! MMG.</p>
-                  </b>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-6">
-                  <p> Si te gusta lo que hago, puedes agradecerme invitándome a un cafecito:</p>
-
-
-                  <a href='https://cafecito.app/megamusicagratis' rel='noopener' target='_blank'>
-                    <img class="img-cafecito"
-                      srcset='https://cdn.cafecito.app/imgs/buttons/button_2.png 1x, https://cdn.cafecito.app/imgs/buttons/button_2_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_2_3.75x.png 3.75x'
-                      src='https://cdn.cafecito.app/imgs/buttons/button_2.png' alt='Invitame un café en cafecito.app' />
-                  </a>
-                </div>
-                <div class="col-6">
-                  <p>También me puedes comprar un jarrón de cerveza por paypal:</p>
-                  <form action="https://www.paypal.com/donate" method="post" target="_blank">
-                    <input type="hidden" name="hosted_button_id" value="E64TF7SFVS88N" />
-                    <input class="img-paypal" type="image"
-                      src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit"
-                      title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                  </form>
-                </div>
-              </div>
-
-          </section>
-        </div>
-
-        <div class="tm-section-wrap bg-white">
-          <section id="contacto" class="row tm-section">
-            <div class="col-12">
-              <div class="tm-double-border-1 tm-border-gray">
-                <div class="tm-double-border-2 tm-border-gray tm-box-pad">
-                  <h2 class="tm-color-primary tm-section-title mb-4">¡Deja un comentario!</h2>
-
-                  <div id='disqusDiv' class="disqus">
-                    <div id="disqus_thread"></div>
-                    <noscript>Please enable JavaScript to view the
-                      <a href="https://disqus.com/?ref_noscript">comments powered by
-                        Disqus.</a></noscript>
+    <div class="tm-section-wrap bg-white">
+      <section id="discos" class="row tm-section">
+        <div class="col-12">
+          <div class="w-100 tm-double-border-1 tm-border-gray">
+            <div class="tm-double-border-2 tm-border-gray tm-box-pad">
+              <div class="tm-section-half">
+                <h2 class="tm-section-title tm-color-primary mb-5">Discos</h2>
+                <h3>¡Busca y descarga todos tus discos favoritos! </h3>
+                <div class="input-group input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">BUSCAR</span>
                   </div>
+                  <input type="text" id="discsInput" placeholder="Por ejemplo: The Getaway" title="Type in a name"
+                    class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="tabla-discos">
+                  <table class="table table-hover" id="discs-table">
+
+                  </table>
+                  <div id="message-disc"></div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </main>
+      </section>
     </div>
+
+    <div class="tm-section-wrap bg-white">
+      <section id="sobre-mmg" class="row tm-section">
+        
+        <div class="col-12 tm-section-pad">
+          <div class="tm-flex-item-left">
+            <h2 class="tm-color-primary tm-section-title mb-4">Sobre Mega Música Gratis</h2>
+            <p class="mb-5">
+              Mega Música Gratis es un proyecto de una sola persona,
+              nacido en un 7 de abril del 2018 en Youtube. A partir de entonces
+              comenzó a expandirse hacia un blog: megamusicfree.blogspot.com.
+              Allí, un montón de personas agradecieron su contenido.
+              Finalmente un 7 de abril de 2020, (si, día y mes coincidentes)
+              Logró obtener su propio dominio, el mismo que ves ahora mismo: megamusicagratis.com.
+              Desde ese entonces hasta el día de hoy, Mega Música Gratis consiguió un monton de visitas y
+              de apoyo por parte de ustedes.
+            </p>
+            <b>
+              <p class="mb-5">¡Muchas gracias! MMG.</p>
+            </b>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <p> Si te gusta lo que hago, puedes agradecerme invitándome a un cafecito:</p>
+
+
+              <a href='https://cafecito.app/megamusicagratis' rel='noopener' target='_blank'>
+                <img class="img-cafecito"
+                  srcset='https://cdn.cafecito.app/imgs/buttons/button_2.png 1x, https://cdn.cafecito.app/imgs/buttons/button_2_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_2_3.75x.png 3.75x'
+                  src='https://cdn.cafecito.app/imgs/buttons/button_2.png' alt='Invitame un café en cafecito.app' />
+              </a>
+            </div>
+            <div class="col-6">
+              <p>También me puedes comprar un jarrón de cerveza por paypal:</p>
+              <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                <input type="hidden" name="hosted_button_id" value="E64TF7SFVS88N" />
+                <input class="img-paypal" type="image"
+                  src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit"
+                  title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              </form>
+            </div>
+          </div>
+
+      </section>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.singlePageNav.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="slick/slick.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/templatemo-scripts.js"></script>
-    <script src="js/data_table.js"></script>
-    <script src="js/table_function.js"></script>
-    <script src="js/disqus.js"></script>
-    <script src="ad.js"></script>
+
+    <div class="tm-section-wrap bg-white">
+      <section id="contacto" class="row tm-section">
+        <div class="col-12">
+          <div class="tm-double-border-1 tm-border-gray">
+            <div class="tm-double-border-2 tm-border-gray tm-box-pad">
+              <h2 class="tm-color-primary tm-section-title mb-4">¡Deja un comentario!</h2>
+
+              <div id='disqusDiv' class="disqus">
+                <div id="disqus_thread"></div>
+                <noscript>Please enable JavaScript to view the
+                  <a href="https://disqus.com/?ref_noscript">comments powered by
+                    Disqus.</a></noscript>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.singlePageNav.min.js"></script>
+  <script src="js/parallax.min.js"></script>
+  <script src="slick/slick.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/templatemo-scripts.js"></script>
+  <script src="js/data_table.js"></script>
+  <script src="js/table_function.js"></script>
+  <script src="js/disqus.js"></script>
+  <script src="ad.js"></script>
 </body>
 
 </html>

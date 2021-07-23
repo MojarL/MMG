@@ -5,19 +5,52 @@ DREAM PULSE
 https://templatemo.com/tm-536-dream-pulse
 
 */
+
+
 html{
   scroll-behavior: smooth;
+}
+
+.alert{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+#discs-table td{
+  display: table-cell;
+}
+
+#bands-table tr, #discs-table tr{
+  padding:auto;
+  display: table-row;
+  
+}
+
+td {
+  width: 50%;
+  height: 100%;
+  color:black;
+}
+
+td a{
+  color: #000000;
 }
 
 h4{
   font-size: 24px;
 }
 
+h3{
+  font-size: 25px;
+}
+
 h2{
   font-size: 26px;
 }
 
-p{
+p, td{
   font-size: 18px;
 }
 
@@ -36,33 +69,26 @@ p{
   display: none;
 }
 
-#bands-table tr, #discs-table tr{
-  padding: 2%;
-  width: 100%;
-  display: inline-block;
-  
-}
+
 
 
 .disqus{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-td, td a {
-  padding: 0%;
-  width: 100%;
-  height: 100%;
-  display: block;
-  color:black;
-}
 
-td:hover{
+
+tr:hover{
   text-decoration: none;
   background-color: #999;
 }
 
-.alert-link:hover{
-  background-color: rgb(129, 197, 127);
+a:visited{
+  color: rgb(148, 42, 0);
+}
+
+.alert-link:hover, .alert:hover{
+  font-weight: bolder;
 }
 
 body {
@@ -73,6 +99,8 @@ body {
   color: #707172;
   background-color: #666;
 }
+
+
 
 p {
   line-height: 2;
@@ -187,16 +215,13 @@ a {
   z-index: 100;
   padding-left: 70px;
   padding-right: 70px;
-  width: 400px;
-  max-width: 400px;
-}
-
-/* Hide scrollbar */
-.tm-sidebar {
-  overflow-y: scroll;
+  width: 385px;
+  max-width: 385px;
+  overflow-y: scroll;/* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
+
 .tm-sidebar::-webkit-scrollbar {
   /* WebKit */
   width: 0;
@@ -327,12 +352,22 @@ a {
   h4{
     font-size: 21px;
   }
-  h2{
+
+  h3{
+    font-size: 22px;
+  }
+
+  h2, .alert{
     font-size: 24px;
   }
-  p{
+  p, td{
     font-size: 17px;
   }
+
+  .alert{
+    padding: 10px;
+  }
+
   .input-group-text,.form-control{
     font-size: 16px;
   }
@@ -348,12 +383,22 @@ a {
   h4{
     font-size: 19px;
   }
-  h2{
+
+  h3{
+    font-size: 20px;
+  }
+
+  h2, .alert{
     font-size: 22px;
   }
-  p{
+  p, td{
     font-size: 16px;
   }
+
+  .alert{
+    padding: 8px;
+  }
+
   .input-group-text,.form-control{
     font-size: 15px;
   }
@@ -369,12 +414,22 @@ a {
   h4{
     font-size: 17px;
   }
-  h2{
+
+  h3{
+    font-size: 18px;
+  }
+
+  h2, .alert{
     font-size: 20px;
   }
-  p{
+  p, td{
     font-size: 15px;
   }
+
+  .alert{
+    padding: 6px;
+  }
+
   .input-group-text,.form-control{
     font-size: 14px;
   }
@@ -390,12 +445,22 @@ a {
   h4{
     font-size: 15px;
   }
-  h2{
+
+  h3{
+    font-size: 16px;
+  }
+
+  h2, .alert{
     font-size: 18px;
   }
-  p{
+  p, td{
     font-size: 14px;
   }
+
+  .alert{
+    padding: 4px;
+  }
+
   .input-group-text,.form-control{
     font-size: 13px;
   }
@@ -411,12 +476,24 @@ a {
   h4{
     font-size: 12px;
   }
-  h2{
+
+  h3{
+    font-size: 13px;
+  }
+
+  h2, .alert{
     font-size: 16px;
   }
-  p{
+  p, td{
     font-size: 12px;
+    padding: 0;
+    margin: 0;
   }
+
+  .alert{
+    padding: 0px;
+  }
+
   .input-group-text,.form-control{
     font-size: 11px;
   }
@@ -795,12 +872,17 @@ figure.effect-bubba:hover p {
   .tm-section {
     padding: 30px;
   }
+  .tm-box-pad {
+    padding: 0;
+  }
 }
 
 @media (max-width: 554px) {
   .tm-section {
-    padding: 15px;
+    padding: 15px 0;
+    margin: 0;
   }
+
 }
 
 @media (max-width: 383px) {
@@ -808,7 +890,5 @@ figure.effect-bubba:hover p {
     bottom: -40px;
   }
 
-  .tm-box-pad {
-    padding: 50px 30px;
-  }
+
 }
